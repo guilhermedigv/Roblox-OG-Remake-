@@ -14,19 +14,19 @@ Esta política descreve os dados que a extensão pode acessar, usar, armazenar e
 
 Para fornecer seus recursos, a extensão pode acessar informações disponibilizadas pelas páginas e APIs oficiais do Roblox, incluindo:
 
-- identificadores de conta, nomes de usuário e informações de perfil;
-- listas de amizades, seguidores e solicitações de amizade;
-- presença e atividade exibida pelo Roblox, como estado online e jogo em que uma conta está;
-- alterações de perfil de pessoas que o usuário escolhe acompanhar;
-- informações de jogos, grupos/comunidades, itens, catálogo, servidores e seus respectivos identificadores e métricas públicas.
+- **Identificadores e informações pessoais da conta:** IDs de contas Roblox, nomes de usuário, nomes de exibição e informações de perfil.
+- **Atividade:** listas de amizades, seguidores e solicitações, presença/estado online, jogos em que contas aparecem, alterações de amizade e mudanças em perfis de pessoas que o usuário escolhe acompanhar.
+- **Conteúdo do site:** textos, imagens, links e informações de jogos, grupos/comunidades, itens, catálogo, servidores e métricas públicas necessárias às ferramentas de aprimoramento.
+- **Comunicações pessoais:** metadados de mensagens privadas do Roblox, como IDs e estado de leitura, para a função opcional de marcar mensagens como lidas. Nas conversas de chat abertas pelo usuário, a extensão também processa dados das mensagens disponíveis na página para corrigir o carregamento, a atualização e a navegação do chat. O conteúdo das conversas não é adicionado ao histórico de atividade da extensão.
+- **Informações de autenticação:** em solicitações autenticadas, a extensão pode utilizar a sessão já aberta no navegador e um token anti-CSRF disponibilizado pelo próprio Roblox. Esses dados são usados apenas nas solicitações destinadas aos serviços do Roblox; a extensão não solicita a senha do usuário.
 
-Alguns desses dados podem identificar uma conta Roblox ou descrever sua atividade na plataforma. Os recursos de acompanhamento e histórico só são usados para exibir as funcionalidades escolhidas pelo usuário.
+Alguns desses dados podem identificar uma conta Roblox ou descrever sua atividade e comunicações na plataforma. Os recursos de acompanhamento e histórico só são usados para exibir as funcionalidades escolhidas pelo usuário.
 
 ## 3. Como os dados são armazenados
 
 As configurações da extensão são mantidas no armazenamento do navegador. O histórico de presença e eventos de atividade é guardado localmente no banco de dados do navegador (IndexedDB), neste dispositivo.
 
-O recurso de sincronização de configurações, quando ativado pelo usuário, utiliza a área de sincronização fornecida pelo próprio navegador (Chrome/Edge). Essa sincronização pode incluir valores de configuração e listas de identificadores necessárias aos recursos configurados. O histórico detalhado de atividade não é incluído nessa sincronização e permanece neste dispositivo.
+O recurso de sincronização de configurações, quando ativado pelo usuário, utiliza a área de sincronização fornecida pelo próprio navegador (Chrome/Edge). Essa sincronização pode incluir valores de configuração e listas de identificadores necessárias aos recursos configurados. O histórico detalhado de atividade e o conteúdo das conversas não são incluídos nessa sincronização.
 
 A extensão oferece funções manuais de exportação e restauração. Os arquivos de backup podem conter configurações, listas acompanhadas e registros de atividade, inclusive informações sobre outras contas Roblox. O usuário deve manter esses arquivos privados e compartilhá-los apenas se desejar.
 
@@ -34,11 +34,11 @@ A extensão oferece funções manuais de exportação e restauração. Os arquiv
 
 A extensão faz solicitações às páginas e APIs do Roblox e aos domínios de distribuição de conteúdo do Roblox para obter as informações necessárias às funcionalidades.
 
-Quando uma funcionalidade exige autenticação, as solicitações podem utilizar a sessão Roblox já aberta no navegador. A extensão não solicita a senha do usuário, não lê nem exporta deliberadamente a senha ou o conteúdo dos cookies de sessão e não os envia ao responsável pela edição.
+Quando uma funcionalidade exige autenticação, as solicitações podem utilizar a sessão Roblox já aberta no navegador. Um token anti-CSRF fornecido pelo Roblox pode ser mantido temporariamente em memória para realizar solicitações protegidas, como atualizar o estado de leitura de mensagens. A extensão não solicita a senha, não exporta deliberadamente os cookies de sessão ou tokens para o responsável pela edição e não os envia a servidores operados por Guilherme Gv.
 
 Quando a sincronização de configurações é ativada, os dados correspondentes são tratados pelo serviço de sincronização do navegador, conforme a conta e as configurações do próprio navegador.
 
-O Roblox OG não possui um servidor próprio de análise, telemetria ou armazenamento de atividade operado por Guilherme Gv. A extensão não vende dados pessoais nem envia automaticamente o histórico de atividade ao responsável pela edição.
+O Roblox OG não possui um servidor próprio de análise, telemetria ou armazenamento de atividade operado por Guilherme Gv. A extensão não vende dados pessoais nem envia automaticamente o histórico de atividade ou o conteúdo das conversas ao responsável pela edição.
 
 ## 5. Relatórios de erro
 
@@ -67,4 +67,4 @@ Identificador público: **@guilhermedigv**
 
 ## English summary
 
-Roblox OG is a community-made, unofficial Roblox website enhancement extension. It may process Roblox account identifiers, profile details, friends, followers, presence, selected profile activity, and Roblox game/community information to provide its features. Settings are stored in browser storage. Detailed activity history is stored locally in IndexedDB on the user's device. If the user enables browser settings sync, selected settings and related identifier lists may be synchronized through the browser's own sync service. Requests to Roblox may use the existing browser session; the extension does not ask for or deliberately read/export the user's Roblox password or session-cookie contents. The extension maintainer does not operate a server to receive activity history, does not sell user data, and does not automatically send error reports to the maintainer. Users can disable tracking, clear local activity, manage sync, and export or restore backups. Contact: Guilherme Gv — @guilhermedigv.
+Roblox OG is an unofficial community-made Roblox website enhancement extension. It may process Roblox account identifiers and profile information; friends, followers and presence/activity data; Roblox website content; private-message metadata for the optional mark-as-read feature; and messages available in chat conversations opened by the user for chat repair and navigation. For authenticated Roblox requests, the extension may use the browser's existing Roblox session and a Roblox-provided anti-CSRF token temporarily in memory. It does not ask for the user's password or send session tokens to the extension maintainer. Settings are stored in browser storage and may be synchronized through the browser's own sync service if enabled. Detailed activity history and chat content are not included in settings sync. Activity records are stored locally in IndexedDB. The maintainer does not operate a server to receive activity history or chat content, does not sell personal data, and does not automatically send error reports to the maintainer. Contact: Guilherme Gv — @guilhermedigv.
