@@ -10,6 +10,10 @@ Este repositório contém a apresentação inicial do projeto. O kit de compila�
 
 O kit preparado nesta conversa é um **kit de compilação**, não a extensão final instalável. O pacote instalável para Chrome e Edge só pode ser gerado depois de executar `build.bat` no Windows com Node.js 26.8.2 ou superior. O arquivo gerado será `Roblox-OG-4.5.1-Chrome-Edge.zip`.
 
+## Privacidade
+
+Consulte a [Política de Privacidade do Roblox OG](PRIVACIDADE-ROBLOX-OG.md).
+
 ## Créditos e origem
 
 - Edição PT-BR, identidade e manutenção desta personalização: **Guilherme Gv** — @guilhermedigv.
